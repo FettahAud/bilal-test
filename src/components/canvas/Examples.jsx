@@ -23,6 +23,23 @@ export const Spring = (props) => {
   useFrame((state, delta) => (scene.rotation.x += delta))
   return <primitive scale={1.1} object={scene} {...props} />
 }
+export const Spring2 = (props) => {
+  const { scene } = useGLTF('/spring-2.glb')
+  useEffect(() => {
+    //   scene.children[0].geometry.computeVertexNormals()
+    scene.children[0].material = new THREE.MeshStandardMaterial({
+      color: 'black',
+      side: THREE.DoubleSide,
+      metalness: 0.35,
+      roughness: 0.25,
+    })
+  }, [])
+  // scene.rotation.order = 'ZYX'
+  // scene.rotation.z = THREE.MathUtils.degToRad(45)
+
+  // useFrame((state, delta) => (scene.rotation.x += delta))
+  return <primitive scale={2} position={[0, 0, 0]} object={scene} {...props} rotation={[90, 0, 0]} />
+}
 
 // export const Blob = ({ route = '/', ...props }) => {
 //   const router = useRouter()

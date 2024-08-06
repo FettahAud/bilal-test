@@ -6,6 +6,7 @@ import Hero from './components/hero'
 import Clients from './components/clients'
 import ThreeDSection from './components/threeDSection'
 import CardsSection from './components/cardsSection'
+import SocialSection from './components/socialSection'
 // import { Suspense } from 'react'
 
 // const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
@@ -31,11 +32,12 @@ import CardsSection from './components/cardsSection'
 export default function Page() {
   return (
     <>
-      <Header />
+      {/* <Header />
       <Hero />
       <Clients />
       <ThreeDSection />
-      <CardsSection />
+      <CardsSection /> */}
+      <SocialSection />
     </>
   )
 }
