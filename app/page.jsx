@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import Header from './components/header'
+import Hero from './components/hero'
 // import { Suspense } from 'react'
 
 // const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
@@ -28,6 +29,7 @@ export default function Page() {
   return (
     <>
       <Header />
+      <Hero />
     </>
   )
 }
