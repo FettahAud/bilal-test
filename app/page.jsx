@@ -30,9 +30,9 @@ import ThreeDSection from './components/threeDSection'
 export default function Page() {
   return (
     <>
-      {/* <Header />
+      <Header />
       <Hero />
-      <Clients /> */}
+      <Clients />
       <ThreeDSection />
     </>
   )
