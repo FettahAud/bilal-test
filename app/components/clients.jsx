@@ -1,5 +1,5 @@
 import '@splidejs/react-splide/css'
-import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide'
+import { Splide, SplideSlide } from '@splidejs/react-splide'
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
 import client1 from 'public/clients/01.svg'
 import client2 from 'public/clients/02.svg'

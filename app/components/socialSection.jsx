@@ -1,6 +1,9 @@
 import Image from 'next/image'
-
+// import '@splidejs/react-splide/css'
+import { Splide, SplideSlide } from '@splidejs/react-splide'
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
 import squaresBg from '/public/squares-bg.svg'
+import seoBg from '/public/seo-bg.png'
 
 import { Suspense } from 'react'
 import { Spring2 } from '@/components/canvas/Examples'
@@ -155,11 +158,89 @@ const Counts = () => {
   )
 }
 
+const Line = ({ text, style, children }) => {
+  return (
+    // Maybe use framer motion
+    <div className={`py-6 flex items-center justify-between gap-[90px] absolute w-max left-0 top-0`} style={style}>
+      {children}
+      {[...Array(10)].map((_, i) => (
+        <span className='text-[20px] text-[#252432]'>{text}</span>
+      ))}
+    </div>
+    // <div className='absolute -left-20 top-0' style={style}>
+    //   <Splide
+    //     className={`bg-[${bg}] py-6  w-max`}
+    //     options={{
+    //       gap: '90px',
+    //       pagination: false,
+    //       perMove: 1,
+    //       perPage: 5,
+    //       rewind: false,
+    //       type: 'loop',
+    //       arrows: false,
+    //       drag: false,
+    //       reducedMotion: false,
+    //       //   autoScroll: {
+    //       //     pauseOnHover: false,
+    //       //     pauseOnFocus: false,
+    //       //     speed: 0.7,
+    //       //     autoStart: true,
+    //       //     rewind: false,
+    //       //   },
+    //     }}
+    //     // extensions={{ AutoScroll }}
+    //     aria-label='Client Logos Carousel'
+    //   >
+    //     {[...Array(10)].map((_, i) => (
+    //       <SplideSlide key={i} className='flex-1 select-none' role='group' aria-roledescription='slide'>
+    //         <span className='text-[20px] text-[#252432]'>{text}</span>
+    //       </SplideSlide>
+    //     ))}
+    //   </Splide>
+    // </div>
+  )
+}
+
+const Seo = () => {
+  return (
+    <div className='w-full relative'>
+      <figure className='w-max mx-auto select-none rounded-2xl overflow-hidden'>
+        <Image src={seoBg} alt='bg' />
+      </figure>
+      <Line
+        text={'Search Engine Optimization (SEO)'}
+        bg={''}
+        style={{
+          rotate: '9deg',
+          transformOrigin: 'left',
+          top: '30%',
+          zIndex: 2,
+        }}
+      >
+        <div className={`bg-item bg-[#FFC690] -z-10 h-full w-full absolute top-0 left-0`}></div>
+      </Line>
+      <Line
+        text={'Content Marketing'}
+        bg={'#fff'}
+        style={{
+          rotate: '-9deg',
+          transformOrigin: 'left',
+          top: '70%',
+          zIndex: 1,
+        }}
+      >
+        <div className={`bg-item bg-[#f6f6f6] -z-10 h-full w-full absolute top-0 left-0`}></div>
+      </Line>
+    </div>
+  )
+}
+
 export default function SocialSection() {
   return (
     <section className='py-[186px] bg-[#F5F8FF] relative'>
       <Social3D />
       <Counts />
+      <Seo />
     </section>
   )
 }
