@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const CardTitle = ({ title, style }) => {
   return (
-    <h1 className='absolute font-inter text-[200px] font-black text-[#0A0B1E]' style={style}>
+    <h1 className='absolute font-inter text-[200px] font-black text-[#0A0B1E]' style={style} aria-label={title}>
       {title}
     </h1>
   )
@@ -11,12 +11,17 @@ const CardTitle = ({ title, style }) => {
 const Row = ({ image, title, description, dark = false, odd = false }) => {
   return (
     <div className={`flex items-center justify-between gap-20 ${odd ? 'flex-row-reverse' : ''}`}>
-      <figure className='relative'>
+      <figure className='relative' aria-label={image.alt}>
         <Image src={image.src} alt={image.alt} objectFit='contain' width={image.width} height={image.height} />
       </figure>
-      <article className={`flex flex-1 flex-col gap-5 ${dark ? 'text-white' : 'text-black'}`}>
+      <article
+        className={`flex flex-1 flex-col gap-5 ${dark ? 'text-white' : 'text-black'}`}
+        aria-labelledby={`article-heading-${title}`}
+      >
         <header>
-          <h3 className='text-[39px] leading-[48px]'>{title}</h3>
+          <h3 id={`article-heading-${title}`} className='text-[39px] leading-[48px]'>
+            {title}
+          </h3>
         </header>
         <p className='text-base font-normal leading-6'>{description}</p>
       </article>
@@ -28,10 +33,10 @@ export default function CardsSection() {
   return (
     <section id='cards-wrapper' className='flex flex-col gap-[150px] px-40 py-[200px]'>
       <div className='relative bg-[#252525] px-[80px] py-[150px]'>
-        <figure className='absolute left-0 top-0 h-[100px] w-full scale-x-125'>
+        <figure className='absolute left-0 -top-6 h-[100px] w-full scale-125'>
           <Image src={'/curved-vector.svg'} alt='vector' fill />
         </figure>
-        <figure className='absolute -bottom-6 left-0 h-[100px] w-full rotate-180 scale-x-125'>
+        <figure className='absolute -bottom-6 left-0 h-[100px] w-full rotate-180 scale-125'>
           <Image src={'/curved-vector.svg'} alt='vector' fill />
         </figure>
         <CardTitle
