@@ -21,7 +21,7 @@ export const Spring = (props) => {
   scene.rotation.z = THREE.MathUtils.degToRad(45)
 
   useFrame((state, delta) => (scene.rotation.x += delta))
-  return <primitive scale={1.2} object={scene} {...props} />
+  return <primitive scale={1.1} object={scene} {...props} />
 }
 
 // export const Blob = ({ route = '/', ...props }) => {

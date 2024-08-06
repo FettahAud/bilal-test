@@ -24,18 +24,18 @@ const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mo
 export default function ThreeDSection() {
   return (
     <section
-      className='flex h-screen justify-between gap-20 bg-[#f5f8ff] font-pop *:flex-1'
+      className='flex items-center justify-between gap-20 bg-[#f5f8ff] pb-20 font-pop *:flex-1'
       aria-labelledby='threeDSection-heading'
     >
-      <div className='relative flex h-full items-center'>
-        <figure aria-label='Graph Circle'>
-          <Image src={graphCircle} alt='graph circle' style={{ maxHeight: '625px' }} />
-        </figure>
-      </div>
-      <article className='pt-[58px]'>
-        <header className='mb-[130px] flex items-center gap-[60px]'>
-          <Image src={'/orange-logo.svg'} alt='Orange logo' width={50} height={50} />
-          <h3 id='threeDSection-heading' className='text-4xl font-normal uppercase'>
+      <figure aria-label='Graph Circle'>
+        <Image src={graphCircle} alt='graph circle' style={{ maxHeight: '625px' }} />
+      </figure>
+      <article className='pr-[60px] pt-[58px]'>
+        <header className='mb-[80px] ml-[80px] flex items-center gap-[60px]'>
+          <figure className='basis-auto '>
+            <Image src={'/orange-logo.svg'} alt='Orange logo' width={50} height={50} />
+          </figure>
+          <h3 id='threeDSection-heading' className='flex-1 text-4xl font-normal uppercase'>
             Embrace the Extraordinary: Elevate Your Reality in 3D!
           </h3>
         </header>
