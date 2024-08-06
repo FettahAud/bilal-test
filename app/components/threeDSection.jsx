@@ -23,25 +23,30 @@ const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mo
 
 export default function ThreeDSection() {
   return (
-    <section className='flex h-screen justify-between gap-20 bg-[#f5f8ff] font-pop *:flex-1'>
+    <section
+      className='flex h-screen justify-between gap-20 bg-[#f5f8ff] font-pop *:flex-1'
+      aria-labelledby='threeDSection-heading'
+    >
       <div className='relative flex h-full items-center'>
-        <figure>
+        <figure aria-label='Graph Circle'>
           <Image src={graphCircle} alt='graph circle' style={{ maxHeight: '625px' }} />
         </figure>
       </div>
       <article className='pt-[58px]'>
         <header className='mb-[130px] flex items-center gap-[60px]'>
           <Image src={'/orange-logo.svg'} alt='Orange logo' width={50} height={50} />
-          <h3 className='text-4xl font-normal uppercase'>Embrace the Extraordinary: Elevate Your Reality in 3D!</h3>
+          <h3 id='threeDSection-heading' className='text-4xl font-normal uppercase'>
+            Embrace the Extraordinary: Elevate Your Reality in 3D!
+          </h3>
         </header>
         <div className='grid grid-cols-2 gap-[40px]'>
-          <p className='text-[24px] font-medium'>
+          <p className='text-[24px] font-medium' aria-label='3D Technology Description'>
             Step into the captivating world of 3D technology, where images and objects come to life with depth and
             realism. Explore our diverse applications in entertainment, architecture, gaming, and beyond. Unleash your
-            creativity and experience the limitless possibilities of our 3D realm
+            creativity and experience the limitless possibilities of our 3D realm.
           </p>
           <div className='h-full'>
-            <View className='relative sm:size-full'>
+            <View className='relative sm:size-full' aria-label='3D View'>
               <Suspense fallback={null}>
                 <Spring />
                 <pointLight position={[-10, -10, -10]} color='white' decay={0.2} />
