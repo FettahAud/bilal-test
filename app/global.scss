@@ -63,3 +63,19 @@
 .splide__track {
   height: 100%;
 }
+
+.count-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  div {
+    display: flex;
+    gap: 12px;
+  }
+  p {
+    font-size: 25px;
+    font-weight: 600;
+  }
+}
