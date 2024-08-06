@@ -32,11 +32,11 @@ import SocialSection from './components/socialSection'
 export default function Page() {
   return (
     <>
-      {/* <Header />
+      <Header />
       <Hero />
       <Clients />
       <ThreeDSection />
-      <CardsSection /> */}
+      <CardsSection />
       <SocialSection />
     </>
   )
