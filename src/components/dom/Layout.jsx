@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import dynamic from 'next/dynamic'
+import SmoothScroller from '@/helpers/lenis'
 const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: false })
 
 const Layout = ({ children }) => {
@@ -14,10 +15,11 @@ const Layout = ({ children }) => {
         position: 'relative',
         width: ' 100%',
         height: '100%',
-        overflow: 'auto',
+        overflow: 'hidden',
         touchAction: 'auto',
       }}
     >
+      <SmoothScroller />
       {children}
       <Scene
         style={{

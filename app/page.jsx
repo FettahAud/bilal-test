@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic'
 import Header from './components/header'
 import Hero from './components/hero'
+import Clients from './components/clients'
 // import { Suspense } from 'react'
 
 // const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
@@ -30,6 +31,7 @@ export default function Page() {
     <>
       <Header />
       <Hero />
+      <Clients />
     </>
   )
 }

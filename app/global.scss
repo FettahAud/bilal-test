@@ -14,6 +14,43 @@
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
     overflow: hidden;
   }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+  .clients-paragraph {
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 400px;
+      height: 100px;
+      background-color: #fffd63;
+      top: 50%;
+      position: absolute;
+      left: 40%;
+      z-index: -20;
+    }
+  }
+}
+.splide__track {
+  height: 100%;
 }
