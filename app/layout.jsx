@@ -1,5 +1,10 @@
 import { Layout } from '@/components/dom/Layout'
 import '@/global.scss'
+import { Geologica } from 'next/font/google'
+
+const font = Geologica({
+  subsets: ['latin'],
+})
 
 export const metadata = {
   title: 'Next.js + Three.js',
@@ -14,7 +19,7 @@ export default function RootLayout({ children }) {
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>
+      <body className={font.className}>
         {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
         <Layout>{children}</Layout>
       </body>
