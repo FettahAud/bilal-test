@@ -86,9 +86,11 @@ const clients = [
 
 export default function Clients() {
   return (
-    <section className='relative py-28'>
-      <h2 className='mb-12 text-center text-[60px] font-extrabold leading-[60px]'>Our Prestige Clients</h2>
-      <figure className='absolute left-0 top-0 -z-10 h-full w-screen select-none'>
+    <section className='relative py-28' aria-labelledby='clients-heading'>
+      <h2 id='clients-heading' className='mb-12 text-center text-[60px] font-extrabold leading-[60px]'>
+        Our Prestige Clients
+      </h2>
+      <figure className='absolute left-0 top-0 -z-10 h-full w-screen select-none' aria-hidden='true'>
         <Image src={'/squares-bg.svg'} alt='Squares' fill />
       </figure>
       <Splide
@@ -111,17 +113,18 @@ export default function Clients() {
           },
         }}
         extensions={{ AutoScroll }}
+        aria-label='Client Logos Carousel'
       >
         {clients.map((item) => (
-          <SplideSlide key={item.index} className='flex-1 select-none'>
-            <figure className='relative h-full w-[200px]'>
-              <Image src={item.src} alt={item.client} fill />
+          <SplideSlide key={item.index} className='flex-1 select-none' role='group' aria-roledescription='slide'>
+            <figure className='relative h-full w-[200px]' aria-label={item.client}>
+              <Image src={item.src} alt={`${item.client} logo`} fill />
             </figure>
           </SplideSlide>
         ))}
       </Splide>
-      <article className='clients-paragraph'>
-        <p className='mx-[100px] text-[60px] font-normal leading-[69px]'>
+      <article className='clients-paragraph' aria-labelledby='clients-description'>
+        <p id='clients-description' className='mx-[100px] text-[60px] font-normal leading-[69px]'>
           <b>Built for facilitators, by facilitators. Mazze</b> is more than a digital marketing agency;
           <br /> we’re architects of digital success. What sets us apart? Our seamless fusion of creativity and strategy
           generates impactful campaigns.
