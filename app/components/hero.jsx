@@ -13,9 +13,9 @@ export default function Hero() {
         <Image src={'/hero-bg.jpg'} alt='hero' layout='fill' objectFit='cover' className='object-center' />
       </figure>
       <article className='flex flex-col items-center gap-12 text-center'>
-        <h1 className='text-center text-[70px] font-black leading-[68px] text-white' aria-label='Hero Title'>
-          Run more engaging sessions. Get better outcomes.
-        </h1>
+        <header className='text-center text-[70px] font-black leading-[68px] text-white'>
+          <h1 aria-label='Hero Title'>Run more engaging sessions. Get better outcomes.</h1>
+        </header>
         <p className='max-w-[55%] text-lg font-light leading-5 text-white' aria-label='Hero Description'>
           Effortlessly plan, run and recap super-engaging workshops, trainings, and meetings with Butter’s built-in
           agenda planner, integrated collaboration tools and auto-generated recaps—all in one place.

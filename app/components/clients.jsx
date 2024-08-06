@@ -87,9 +87,9 @@ const clients = [
 export default function Clients() {
   return (
     <section className='relative py-28' aria-labelledby='clients-heading'>
-      <h2 id='clients-heading' className='mb-12 text-center text-[60px] font-extrabold leading-[60px]'>
-        Our Prestige Clients
-      </h2>
+      <header className='mb-12 text-center text-[60px] font-extrabold leading-[60px]'>
+        <h2 id='clients-heading'>Our Prestige Clients</h2>
+      </header>
       <figure className='absolute left-0 top-0 -z-10 h-full w-screen select-none' aria-hidden='true'>
         <Image src={'/squares-bg.svg'} alt='Squares' fill />
       </figure>

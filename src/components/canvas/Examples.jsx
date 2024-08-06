@@ -3,9 +3,26 @@
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Line, useCursor, MeshDistortMaterial } from '@react-three/drei'
 import { useRouter } from 'next/navigation'
+import { Three } from '@/helpers/components/Three'
+
+export const Spring = (props) => {
+  const { scene } = useGLTF('/spring.glb')
+  useEffect(() => {
+    scene.children[0].geometry.computeVertexNormals()
+    scene.children[0].material = new THREE.MeshPhongMaterial({
+      color: 'white',
+      side: THREE.DoubleSide,
+    })
+  }, [])
+  scene.rotation.order = 'ZYX'
+  scene.rotation.z = THREE.MathUtils.degToRad(45)
+
+  useFrame((state, delta) => (scene.rotation.x += delta))
+  return <primitive scale={1.2} object={scene} {...props} />
+}
 
 // export const Blob = ({ route = '/', ...props }) => {
 //   const router = useRouter()
