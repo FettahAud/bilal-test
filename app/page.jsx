@@ -37,9 +37,9 @@ export default function Page() {
       <Hero />
       <Clients />
       <ThreeDSection />
-      <CardsSection />*/}
-      <SocialSection />
-      {/*<Footer /> */}
+      <CardsSection />
+      <SocialSection />*/}
+      <Footer />
     </>
   )
 }
