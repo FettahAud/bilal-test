@@ -2,13 +2,13 @@ import Image from 'next/image'
 
 const CardTitle = ({ title, style }) => {
   return (
-    <h1
+    <h2
       className='absolute top-[-70px] font-inter text-[60px] font-black text-[#0A0B1E] md:top-[-180px] md:text-[200px]'
       style={style}
       aria-label={title}
     >
       {title}
-    </h1>
+    </h2>
   )
 }
 
