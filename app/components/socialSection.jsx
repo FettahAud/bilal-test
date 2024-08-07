@@ -34,7 +34,7 @@ const Social3D = () => {
       </figure>
       <article className='relative flex flex-col gap-40 px-[326px]' aria-labelledby='social-media-heading'>
         <header>
-          <h1
+          <h2
             id='social-media-heading'
             className='text-[84px] font-extrabold leading-[71px] text-[#24272B]'
             aria-label='Social media dynamics'
@@ -59,7 +59,7 @@ const Social3D = () => {
                 fill='black'
               />
             </svg>
-          </h1>
+          </h2>
         </header>
         <div className='absolute left-0 top-[190px] h-20 w-full bg-[#FFC690]'>
           <View orbit className='absolute left-0 top-[-80px] size-[235px]' aria-label='3D View'>

@@ -7,6 +7,7 @@ module.exports = {
     fontFamily: {
       pop: ['Poppins', 'sans-serif'],
       inter: ['Inter', 'sans-serif'],
+      unbounded: ['Unbounded', 'sans-serif'],
     },
   },
   variants: {
