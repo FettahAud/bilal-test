@@ -32,11 +32,11 @@ const Social3D = () => {
       <figure className='absolute left-0 top-0 h-[300px] w-screen select-none' aria-hidden='true'>
         <Image src={squaresBg} className='left-0' alt='Squares' fill objectFit='cover' objectPosition='bottom' />
       </figure>
-      <article className='flex flex-col gap-40 px-[326px] relative' aria-labelledby='social-media-heading'>
+      <article className='relative flex flex-col gap-40 px-[326px]' aria-labelledby='social-media-heading'>
         <header>
           <h1
             id='social-media-heading'
-            className='text-[#24272B] font-extrabold text-[84px] leading-[71px]'
+            className='text-[84px] font-extrabold leading-[71px] text-[#24272B]'
             aria-label='Social media dynamics'
           >
             Social media
@@ -61,8 +61,8 @@ const Social3D = () => {
             </svg>
           </h1>
         </header>
-        <div className='absolute w-full h-20 bg-[#FFC690] left-0 top-[190px]'>
-          <View orbit className='absolute top-[-80px] left-0 size-[235px]' aria-label='3D View'>
+        <div className='absolute left-0 top-[190px] h-20 w-full bg-[#FFC690]'>
+          <View orbit className='absolute left-0 top-[-80px] size-[235px]' aria-label='3D View'>
             <Suspense fallback={null}>
               <Spring2 />
               <pointLight position={[-10, -10, -10]} color='white' decay={0.2} />
@@ -70,7 +70,7 @@ const Social3D = () => {
             </Suspense>
           </View>
         </div>
-        <p className='font-light text-[30px]' style={{ lineHeight: '88%' }} aria-label='Description'>
+        <p className='text-[30px] font-light' style={{ lineHeight: '88%' }} aria-label='Description'>
           At Mazze, we don’t just talk the talk; we walk the walk when it comes to understanding the digital landscape.
           With a keen grasp of how the online world operates, we’re your guides to making the most of its opportunities.
           <br />
@@ -85,7 +85,7 @@ const Social3D = () => {
 
 const Counts = () => {
   return (
-    <div className='flex justify-between mx-[200px] mb-[140px] px-[50px] border-b border-[#CECECE] pb-[50px]'>
+    <div className='mx-[200px] mb-[140px] flex justify-between border-b border-[#CECECE] px-[50px] pb-[50px]'>
       <div className='count-box'>
         <div>
           <svg width='55' height='56' viewBox='0 0 55 56' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -161,7 +161,7 @@ const Counts = () => {
 const Line = ({ text, style, children }) => {
   return (
     // Maybe use framer motion
-    <div className={`py-6 flex items-center justify-between gap-[90px] absolute w-max left-0 top-0`} style={style}>
+    <div className={`absolute left-0 top-0 flex w-max items-center justify-between gap-[90px] py-6`} style={style}>
       {children}
       {[...Array(10)].map((_, i) => (
         <span className='text-[20px] text-[#252432]'>{text}</span>
@@ -203,8 +203,8 @@ const Line = ({ text, style, children }) => {
 
 const Seo = () => {
   return (
-    <div className='w-full relative'>
-      <figure className='w-max mx-auto select-none rounded-2xl overflow-hidden'>
+    <div className='relative w-full'>
+      <figure className='mx-auto w-max select-none overflow-hidden rounded-2xl'>
         <Image src={seoBg} alt='bg' />
       </figure>
       <Line
@@ -217,7 +217,7 @@ const Seo = () => {
           zIndex: 2,
         }}
       >
-        <div className={`bg-item bg-[#FFC690] -z-10 h-full w-full absolute top-0 left-0`}></div>
+        <div className={`absolute left-0 top-0 -z-10 size-full bg-[#FFC690]`}></div>
       </Line>
       <Line
         text={'Content Marketing'}
@@ -229,7 +229,7 @@ const Seo = () => {
           zIndex: 1,
         }}
       >
-        <div className={`bg-item bg-[#f6f6f6] -z-10 h-full w-full absolute top-0 left-0`}></div>
+        <div className={`absolute left-0 top-0 -z-10 size-full bg-[#f6f6f6]`}></div>
       </Line>
     </div>
   )
@@ -237,7 +237,7 @@ const Seo = () => {
 
 export default function SocialSection() {
   return (
-    <section className='py-[186px] bg-[#F5F8FF] relative'>
+    <section className='relative bg-[#F5F8FF] pb-[260px] pt-[186px]'>
       <Social3D />
       <Counts />
       <Seo />
