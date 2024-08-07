@@ -8,6 +8,7 @@ import seoBg from '/public/seo-bg.png'
 import { Suspense } from 'react'
 import { Spring2 } from '@/components/canvas/Examples'
 import dynamic from 'next/dynamic'
+import { twMerge } from 'tailwind-merge'
 
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
@@ -28,15 +29,15 @@ const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mo
 
 const Social3D = () => {
   return (
-    <div className='mb-[230px]'>
+    <div className='mb-[100px] md:mb-[230px]'>
       <figure className='absolute left-0 top-0 h-[300px] w-screen select-none' aria-hidden='true'>
         <Image src={squaresBg} className='left-0' alt='Squares' fill objectFit='cover' objectPosition='bottom' />
       </figure>
-      <article className='relative flex flex-col gap-40 px-[326px]' aria-labelledby='social-media-heading'>
+      <article className='relative flex flex-col gap-40 px-[40px] md:px-[326px]' aria-labelledby='social-media-heading'>
         <header>
           <h2
             id='social-media-heading'
-            className='text-[84px] font-extrabold leading-[71px] text-[#24272B]'
+            className='text-[64px] font-extrabold leading-[60px] text-[#24272B] md:text-[84px] md:leading-[71px]'
             aria-label='Social media dynamics'
           >
             Social media
@@ -61,7 +62,7 @@ const Social3D = () => {
             </svg>
           </h2>
         </header>
-        <div className='absolute left-0 top-[190px] h-20 w-full bg-[#FFC690]'>
+        <div className='absolute left-0 top-[260px] h-20 w-full bg-[#FFC690] md:top-[190px]'>
           <View orbit className='absolute left-0 top-[-80px] size-[235px]' aria-label='3D View'>
             <Suspense fallback={null}>
               <Spring2 />
@@ -70,7 +71,7 @@ const Social3D = () => {
             </Suspense>
           </View>
         </div>
-        <p className='text-[30px] font-light' style={{ lineHeight: '88%' }} aria-label='Description'>
+        <p className='text-[24px] font-light leading-[30px] md:text-[30px] md:leading-[88%]' aria-label='Description'>
           At Mazze, we don’t just talk the talk; we walk the walk when it comes to understanding the digital landscape.
           With a keen grasp of how the online world operates, we’re your guides to making the most of its opportunities.
           <br />
@@ -85,7 +86,7 @@ const Social3D = () => {
 
 const Counts = () => {
   return (
-    <div className='mx-[200px] mb-[140px] flex justify-between border-b border-[#CECECE] px-[50px] pb-[50px]'>
+    <div className='mx-[20px] mb-[140px] flex flex-col justify-between gap-[40px] border-b border-[#CECECE] px-[50px] pb-[50px] md:mx-[200px] md:flex-row md:gap-6'>
       <div className='count-box'>
         <div>
           <svg width='55' height='56' viewBox='0 0 55 56' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -158,13 +159,19 @@ const Counts = () => {
   )
 }
 
-const Line = ({ text, style, children }) => {
+const Line = ({ text, style, children, classes }) => {
   return (
     // Maybe use framer motion
-    <div className={`absolute left-0 top-0 flex w-max items-center justify-between gap-[90px] py-6`} style={style}>
+    <div
+      className={twMerge(
+        'absolute left-[-20px] flex w-max origin-left items-center justify-between gap-[40px] py-2 md:left-0 md:top-0 md:gap-[90px] md:py-6',
+        classes,
+      )}
+      style={style}
+    >
       {children}
       {[...Array(10)].map((_, i) => (
-        <span key={i} className='text-[20px] text-[#252432]'>
+        <span key={i} className='text-base text-[#252432] md:text-[20px]'>
           {text}
         </span>
       ))}
@@ -206,31 +213,13 @@ const Line = ({ text, style, children }) => {
 const Seo = () => {
   return (
     <div className='relative w-full'>
-      <figure className='mx-auto w-max select-none overflow-hidden rounded-2xl'>
-        <Image src={seoBg} alt='bg' />
+      <figure className='mx-auto h-[600px] w-full select-none overflow-hidden px-4 md:h-auto md:w-max'>
+        <Image className='size-full rounded-2xl md:h-auto' src={seoBg} alt='bg' />
       </figure>
-      <Line
-        text={'Search Engine Optimization (SEO)'}
-        bg={''}
-        style={{
-          rotate: '9deg',
-          transformOrigin: 'left',
-          top: '30%',
-          zIndex: 2,
-        }}
-      >
+      <Line text={'Search Engine Optimization (SEO)'} bg={''} classes='top-[30%] rotate-[28deg] md:rotate-[9deg] z-20'>
         <div className={`absolute left-0 top-0 -z-10 size-full bg-[#FFC690]`}></div>
       </Line>
-      <Line
-        text={'Content Marketing'}
-        bg={'#fff'}
-        style={{
-          rotate: '-9deg',
-          transformOrigin: 'left',
-          top: '70%',
-          zIndex: 1,
-        }}
-      >
+      <Line text={'Content Marketing'} bg={'#fff'} classes={'top-[70%] rotate-[-28deg] md:rotate-[-9deg] z-10'}>
         <div className={`absolute left-0 top-0 -z-10 size-full bg-[#f6f6f6]`}></div>
       </Line>
     </div>
@@ -239,7 +228,7 @@ const Seo = () => {
 
 export default function SocialSection() {
   return (
-    <section className='relative bg-[#F5F8FF] pb-[260px] pt-[186px]'>
+    <section className='relative bg-[#F5F8FF] pb-[180px] pt-[100px] md:pb-[260px] md:pt-[186px]'>
       <Social3D />
       <Counts />
       <Seo />
