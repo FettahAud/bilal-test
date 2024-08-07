@@ -173,7 +173,7 @@ const FooterSection = () => {
                 <li>Careers</li>
               </ul>
               <div className='flex gap-[35px] font-urbanist text-base font-extrabold uppercase no-underline'>
-                <a href='#'>
+                <a href='#' aria-label='Twitter link'>
                   <svg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <g clip-path='url(#clip0_1_433)'>
                       <path
@@ -188,7 +188,7 @@ const FooterSection = () => {
                     </defs>
                   </svg>
                 </a>
-                <a href='#'>
+                <a href='#' aria-label='Instagram link'>
                   <svg width='28' height='27' viewBox='0 0 28 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <g clip-path='url(#clip0_1_434)'>
                       <path
@@ -211,7 +211,7 @@ const FooterSection = () => {
                     </defs>
                   </svg>
                 </a>
-                <a href='#'>
+                <a href='#' aria-label='Linked In Link'>
                   <svg width='28' height='27' viewBox='0 0 28 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <g clip-path='url(#clip0_1_435)'>
                       <path
@@ -230,8 +230,12 @@ const FooterSection = () => {
             </div>
           </div>
           <div className='flex gap-[35px] font-urbanist text-base font-extrabold uppercase no-underline'>
-            <a href='#'>Data Policy</a>
-            <a href='#'>Imprints</a>
+            <a href='#' aria-label='Data Policy Link'>
+              Data Policy
+            </a>
+            <a href='#' aria-label='Imprints'>
+              Imprints
+            </a>
           </div>
         </div>
       </div>
