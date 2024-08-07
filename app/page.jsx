@@ -33,12 +33,12 @@ import Footer from './components/Footer'
 export default function Page() {
   return (
     <>
-      {/* <Header />
+      <Header />
       <Hero />
       <Clients />
       <ThreeDSection />
       <CardsSection />
-      <SocialSection /> */}
+      <SocialSection />
       <Footer />
     </>
   )
