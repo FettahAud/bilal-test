@@ -164,7 +164,9 @@ const Line = ({ text, style, children }) => {
     <div className={`absolute left-0 top-0 flex w-max items-center justify-between gap-[90px] py-6`} style={style}>
       {children}
       {[...Array(10)].map((_, i) => (
-        <span className='text-[20px] text-[#252432]'>{text}</span>
+        <span key={i} className='text-[20px] text-[#252432]'>
+          {text}
+        </span>
       ))}
     </div>
     // <div className='absolute -left-20 top-0' style={style}>
