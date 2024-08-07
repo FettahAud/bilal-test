@@ -46,7 +46,7 @@ export default function Header() {
       </button>
       <ul
         id='mobile-menu'
-        className={`absolute left-0 top-[88px] mx-4 block rounded-md border backdrop-blur-md ${isOpen ? '' : 'h-0 border-0 py-0'} gap-10 overflow-hidden rounded-none bg-[#0006] px-4 py-5 text-[20px] font-bold text-white transition-[height] md:hidden`}
+        className={`absolute left-0 top-[88px] mx-4 block rounded-md border backdrop-blur-md ${isOpen ? 'h-auto py-5' : 'h-0 border-0 py-0'} gap-10 overflow-hidden rounded-none bg-[#0006] px-4 text-[20px] font-bold text-white transition-[height] md:hidden`}
         style={{ width: 'calc(100% - 2rem)' }}
         role='menu'
         aria-label='Mobile Menu'

@@ -237,7 +237,7 @@ const FooterSection = () => {
       </div>
       <div className='mt-[30px] flex flex-col items-end justify-between px-2 md:flex-row md:pl-[44px] md:pr-[48px]'>
         <h3 className='font-urbanist text-[120px] font-bold leading-[230px] md:text-[200px]'>Mazze</h3>
-        <span className='pb-2 text-xl md:pb-[44px]'>© 2024</span>
+        <span className='pb-4 text-xl md:pb-[44px]'>© 2024</span>
       </div>
     </footer>
   )
