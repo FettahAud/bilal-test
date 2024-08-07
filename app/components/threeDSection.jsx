@@ -46,7 +46,7 @@ export default function ThreeDSection() {
             creativity and experience the limitless possibilities of our 3D realm.
           </p>
           <div className='h-full'>
-            <View className='relative h-[300px] sm:size-full' aria-label='3D View'>
+            <View className='relative h-[300px] sm:size-full'>
               <Suspense fallback={null}>
                 <Spring />
                 <pointLight position={[-10, -10, -10]} color='white' decay={0.2} />

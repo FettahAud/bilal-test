@@ -63,7 +63,7 @@ const Social3D = () => {
           </h2>
         </header>
         <div className='absolute left-0 top-[260px] h-20 w-full bg-[#FFC690] md:top-[190px]'>
-          <View orbit className='absolute left-0 top-[-80px] size-[235px]' aria-label='3D View'>
+          <View orbit className='absolute left-0 top-[-80px] size-[235px]'>
             <Suspense fallback={null}>
               <Spring2 />
               <pointLight position={[-10, -10, -10]} color='white' decay={0.2} />

@@ -27,7 +27,7 @@ const GetInTouch = () => {
       aria-labelledby='touch-heading'
       aria-describedby='touch-description'
     >
-      <View orbit className='absolute right-[140px] top-0 size-[235px]' aria-label='3D View'>
+      <View orbit className='absolute right-[140px] top-0 size-[235px]'>
         <Suspense fallback={null}>
           <Spring2 />
           <pointLight position={[-10, -10, -10]} color='white' decay={0.2} />
