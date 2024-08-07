@@ -35,8 +35,8 @@ export default function Page() {
     <>
       <Header />
       <Hero />
-      {/* <Clients />
-      <ThreeDSection />
+      <Clients />
+      {/*<ThreeDSection />
       <CardsSection />
       <SocialSection />
       <Footer /> */}
