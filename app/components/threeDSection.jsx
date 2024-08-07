@@ -24,29 +24,29 @@ const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mo
 export default function ThreeDSection() {
   return (
     <section
-      className='flex items-center justify-between gap-20 bg-[#f5f8ff] pb-20 font-pop *:flex-1'
+      className='flex flex-col items-center justify-between gap-6 bg-[#f5f8ff] pb-20 font-pop *:flex-1 md:flex-row md:gap-20'
       aria-labelledby='threeDSection-heading'
     >
-      <figure aria-label='Graph Circle'>
+      <figure aria-label='Graph Circle' className='p-4 md:p-0'>
         <Image src={graphCircle} alt='graph circle' style={{ maxHeight: '625px' }} />
       </figure>
-      <article className='pr-[60px] pt-[58px]'>
-        <header className='mb-[80px] ml-[80px] flex items-center gap-[60px]'>
+      <article className='p-10 md:p-0 md:pr-[60px] md:pt-[58px]'>
+        <header className='mb-[40px] ml-0 flex flex-col items-start gap-[20px] md:mb-[80px] md:ml-[80px] md:flex-row md:items-center md:gap-[60px]'>
           <figure className='basis-auto '>
             <Image src={'/orange-logo.svg'} alt='Orange logo' width={50} height={50} />
           </figure>
-          <h3 id='threeDSection-heading' className='flex-1 text-4xl font-normal uppercase'>
+          <h3 id='threeDSection-heading' className='flex-1 text-3xl font-normal uppercase md:text-4xl'>
             Embrace the Extraordinary: Elevate Your Reality in 3D!
           </h3>
         </header>
-        <div className='grid grid-cols-2 gap-[40px]'>
-          <p className='text-[24px] font-medium' aria-label='3D Technology Description'>
+        <div className='grid grid-flow-row-dense grid-cols-1 gap-[40px] md:grid-cols-2 md:grid-rows-1'>
+          <p className='text-base font-medium md:text-[24px]' aria-label='3D Technology Description'>
             Step into the captivating world of 3D technology, where images and objects come to life with depth and
             realism. Explore our diverse applications in entertainment, architecture, gaming, and beyond. Unleash your
             creativity and experience the limitless possibilities of our 3D realm.
           </p>
           <div className='h-full'>
-            <View className='relative sm:size-full' aria-label='3D View'>
+            <View className='relative h-[300px] sm:size-full' aria-label='3D View'>
               <Suspense fallback={null}>
                 <Spring />
                 <pointLight position={[-10, -10, -10]} color='white' decay={0.2} />
