@@ -35,11 +35,11 @@ export default function Page() {
     <>
       <Header />
       <Hero />
-      <Clients />
+      {/* <Clients />
       <ThreeDSection />
       <CardsSection />
       <SocialSection />
-      <Footer />
+      <Footer /> */}
     </>
   )
 }
