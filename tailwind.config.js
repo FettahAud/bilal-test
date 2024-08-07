@@ -8,6 +8,7 @@ module.exports = {
       pop: ['Poppins', 'sans-serif'],
       inter: ['Inter', 'sans-serif'],
       unbounded: ['Unbounded', 'sans-serif'],
+      urbanist: ['Urbanist', 'sans-serif'],
     },
   },
   variants: {
