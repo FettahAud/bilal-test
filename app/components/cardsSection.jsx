@@ -2,7 +2,11 @@ import Image from 'next/image'
 
 const CardTitle = ({ title, style }) => {
   return (
-    <h1 className='absolute font-inter text-[200px] font-black text-[#0A0B1E]' style={style} aria-label={title}>
+    <h1
+      className='absolute top-[-70px] font-inter text-[60px] font-black text-[#0A0B1E] md:top-[-180px] md:text-[200px]'
+      style={style}
+      aria-label={title}
+    >
       {title}
     </h1>
   )
@@ -10,7 +14,9 @@ const CardTitle = ({ title, style }) => {
 
 const Row = ({ image, title, description, dark = false, odd = false }) => {
   return (
-    <div className={`flex items-center justify-between gap-20 ${odd ? 'flex-row-reverse' : ''}`}>
+    <div
+      className={`flex flex-col items-center justify-between gap-20 md:flex-row ${odd ? 'md:flex-row-reverse' : ''}`}
+    >
       <figure className='relative' aria-label={image.alt}>
         <Image src={image.src} alt={image.alt} objectFit='contain' width={image.width} height={image.height} />
       </figure>
@@ -31,19 +37,18 @@ const Row = ({ image, title, description, dark = false, odd = false }) => {
 
 export default function CardsSection() {
   return (
-    <section id='cards-wrapper' className='flex flex-col gap-[150px] px-40 py-[200px]'>
-      <div className='relative bg-[#252525] px-[80px] py-[150px]'>
-        <figure className='absolute left-0 -top-6 h-[100px] w-full scale-125'>
+    <section id='cards-wrapper' className='flex flex-col gap-[150px] px-4 py-[100px] md:px-40 md:py-[200px]'>
+      <div className='relative bg-[#252525] px-[20px] py-[150px] md:px-[80px]'>
+        <figure className='absolute -top-10 left-0 h-[100px] w-full scale-125 md:-top-6'>
           <Image src={'/curved-vector.svg'} alt='vector' fill />
         </figure>
-        <figure className='absolute -bottom-6 left-0 h-[100px] w-full rotate-180 scale-125'>
+        <figure className='absolute -bottom-10 left-0 h-[100px] w-full rotate-180 scale-125 md:-bottom-6'>
           <Image src={'/curved-vector.svg'} alt='vector' fill />
         </figure>
         <CardTitle
           title='Plan.'
           style={{
             left: 0,
-            top: '-180px',
             transform: 'rotate(-10deg)',
           }}
         />
@@ -54,12 +59,11 @@ export default function CardsSection() {
           description={`Founded by industry pioneers, we blend creativity, data-driven strategies, and cutting-edge technology. Our team, composed of experts versed in the latest digital trends and AI-driven marketing, crafts bespoke strategies tailored to your brand. We analyze trends, harness the power of data, and leverage AI to ensure your online presence stands out in the crowded digital landscape. From chatbot-driven customer engagement to immersive social media campaigns, we redefine digital marketing. Partner with Mazze for innovative solutions, unparalleled expertise, and a roadmap to digital prominence.`}
         />
       </div>
-      <div className='relative rounded-[80px] bg-[#FFC690] px-[80px] py-[150px] flex flex-col gap-[180px] mb-20'>
+      <div className='card'>
         <CardTitle
           title={'Run.'}
           style={{
             right: 0,
-            top: '-180px',
             transform: 'rotate(10deg)',
           }}
         />
@@ -89,12 +93,11 @@ export default function CardsSection() {
           }
         />
       </div>
-      <div className='relative rounded-[80px] bg-[#FFC690] px-[80px] py-[150px] flex flex-col gap-[180px] mb-20'>
+      <div className='card'>
         <CardTitle
           title={'Recap.'}
           style={{
             left: 0,
-            top: '-180px',
             transform: 'rotate(-10deg)',
           }}
         />
@@ -112,12 +115,11 @@ export default function CardsSection() {
           }
         />
       </div>
-      <div className='relative rounded-[80px] bg-[#FFC690] px-[80px] py-[150px] flex flex-col gap-[180px]'>
+      <div className='card mb-0'>
         <CardTitle
           title={'Collaborate.'}
           style={{
             right: 0,
-            top: '-180px',
             transform: 'rotate(10deg)',
           }}
         />
