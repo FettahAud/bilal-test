@@ -1,12 +1,40 @@
+import { Suspense } from 'react'
+import { Spring2 } from '@/components/canvas/Examples'
+import dynamic from 'next/dynamic'
+
+const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
+  ssr: false,
+  loading: () => (
+    <div className='flex h-96 w-full flex-col items-center justify-center'>
+      <svg className='-ml-1 mr-3 size-5 animate-spin text-black' fill='none' viewBox='0 0 24 24'>
+        <circle className='opacity-25' cx='12' cy='12' r='10' stroke='currentColor' strokeWidth='4' />
+        <path
+          className='opacity-75'
+          fill='currentColor'
+          d='M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
+        />
+      </svg>
+    </div>
+  ),
+})
+const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
+
 export default function Footer() {
   return (
-    <footer className='pt-[124px]' role='contentinfo'>
+    <footer className='relative pt-[124px]' role='contentinfo'>
       <article
         id='touch'
         className='mx-[145px] flex flex-col items-center gap-[44px] rounded-t-[32px] bg-[#161616] pb-[44px] pt-[144px] text-center text-white'
         aria-labelledby='touch-heading'
         aria-describedby='touch-description'
       >
+        <View orbit className='absolute right-[140px] top-0 size-[235px]' aria-label='3D View'>
+          <Suspense fallback={null}>
+            <Spring2 />
+            <pointLight position={[-10, -10, -10]} color='white' decay={0.2} />
+            <Common />
+          </Suspense>
+        </View>
         <header>
           <h3 id='touch-heading' className='text-[60px] font-bold leading-[120%]'>
             Let’s Get in Touch
