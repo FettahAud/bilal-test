@@ -165,14 +165,14 @@ const FooterSection = () => {
             <h5>Visit</h5>
           </header>
           <div className='grid grid-cols-2'>
-            <ul className='mb-[48px] flex cursor-pointer flex-col gap-1 text-[24px] font-medium leading-[30px] md:gap-[10px] md:text-[32px]'>
+            <ul className='footer-list mb-[48px] flex cursor-pointer flex-col gap-1 text-[24px] font-medium leading-[30px] md:gap-[10px] md:text-[32px]'>
               <li>Home</li>
               <li>Our Work</li>
               <li>Who we are</li>
               <li>Get in touch</li>
             </ul>
             <div>
-              <ul className='mb-[10px] flex cursor-pointer flex-col gap-1 text-[24px] font-medium leading-[30px] md:gap-[10px] md:text-[32px]'>
+              <ul className='footer-list mb-[10px] flex cursor-pointer flex-col gap-1 text-[24px] font-medium leading-[30px] md:gap-[10px] md:text-[32px]'>
                 <li>Works</li>
                 <li>Blogs</li>
                 <li>Careers</li>
