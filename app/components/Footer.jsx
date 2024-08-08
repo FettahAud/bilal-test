@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { Spring2 } from '@/components/canvas/Examples'
 import dynamic from 'next/dynamic'
+import { useScroll, useTransform, motion } from 'framer-motion'
 
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
@@ -55,10 +56,14 @@ const GetInTouch = () => {
 }
 
 const LatestWorksLine = () => {
+  const { scrollYProgress } = useScroll()
+  const x = useTransform(scrollYProgress, [0, 1], [0, -1000])
+
   return (
-    <div
+    <motion.div
       id='latest-works'
       className='flex h-[80px] w-max items-center justify-between gap-[18px] text-nowrap bg-[#141414] py-5 font-unbounded text-[20px] font-extrabold uppercase leading-[44px] text-white md:h-[110px] md:text-[34px]'
+      style={{ x }}
     >
       {[...Array(10)].map((_, i) => (
         <>
@@ -79,7 +84,7 @@ const LatestWorksLine = () => {
           </svg>
         </>
       ))}
-    </div>
+    </motion.div>
   )
 }
 
