@@ -44,7 +44,7 @@ const nextConfig = {
 
     // shader support
     config.module.rules.push({
-      test: /\.(glsl|vs|fs|vert|frag)$/,
+      test: /\.(glsl|vs|vert|frag)$/,
       exclude: /node_modules/,
       use: ['raw-loader', 'glslify-loader'],
     })

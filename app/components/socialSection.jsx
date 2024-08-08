@@ -1,13 +1,11 @@
 import Image from 'next/image'
-// import '@splidejs/react-splide/css'
-import { Splide, SplideSlide } from '@splidejs/react-splide'
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
 import squaresBg from '/public/squares-bg.svg'
 import seoBg from '/public/seo-bg.png'
 
 import { Suspense } from 'react'
 import { Spring2 } from '@/components/canvas/Examples'
 import dynamic from 'next/dynamic'
+import { useScroll, useTransform, motion } from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
 
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
@@ -159,54 +157,24 @@ const Counts = () => {
   )
 }
 
-const Line = ({ text, style, children, classes }) => {
+const Line = ({ text, children, classes, odd }) => {
+  const { scrollYProgress } = useScroll()
+  const x = useTransform(scrollYProgress, [0, 1], [0, odd ? -1000 : 1000])
+
   return (
-    // Maybe use framer motion
-    <div
-      className={twMerge(
-        'absolute left-[-20px] flex w-max origin-left items-center justify-between gap-[40px] py-2 md:left-0 md:top-0 md:gap-[90px] md:py-6',
-        classes,
-      )}
-      style={style}
-    >
-      {children}
-      {[...Array(10)].map((_, i) => (
-        <span key={i} className='text-base text-[#252432] md:text-[20px]'>
-          {text}
-        </span>
-      ))}
+    <div className={twMerge(`absolute ${odd ? 'left-[-20px]' : 'left-[-1000px]'}  origin-left`, classes)}>
+      <motion.div
+        className='flex w-max items-center justify-between gap-[40px] py-2 md:gap-[90px] md:py-6'
+        style={{ translateX: x }}
+      >
+        {children}
+        {[...Array(10)].map((_, i) => (
+          <span key={i} className='text-base text-[#252432] md:text-[20px]'>
+            {text}
+          </span>
+        ))}
+      </motion.div>
     </div>
-    // <div className='absolute -left-20 top-0' style={style}>
-    //   <Splide
-    //     className={`bg-[${bg}] py-6  w-max`}
-    //     options={{
-    //       gap: '90px',
-    //       pagination: false,
-    //       perMove: 1,
-    //       perPage: 5,
-    //       rewind: false,
-    //       type: 'loop',
-    //       arrows: false,
-    //       drag: false,
-    //       reducedMotion: false,
-    //       //   autoScroll: {
-    //       //     pauseOnHover: false,
-    //       //     pauseOnFocus: false,
-    //       //     speed: 0.7,
-    //       //     autoStart: true,
-    //       //     rewind: false,
-    //       //   },
-    //     }}
-    //     // extensions={{ AutoScroll }}
-    //     aria-label='Client Logos Carousel'
-    //   >
-    //     {[...Array(10)].map((_, i) => (
-    //       <SplideSlide key={i} className='flex-1 select-none' role='group' aria-roledescription='slide'>
-    //         <span className='text-[20px] text-[#252432]'>{text}</span>
-    //       </SplideSlide>
-    //     ))}
-    //   </Splide>
-    // </div>
   )
 }
 
@@ -216,10 +184,14 @@ const Seo = () => {
       <figure className='mx-auto h-[600px] w-full select-none overflow-hidden px-4 md:h-auto md:w-max'>
         <Image className='size-full rounded-2xl md:h-auto' src={seoBg} alt='bg' />
       </figure>
-      <Line text={'Search Engine Optimization (SEO)'} bg={''} classes='top-[30%] rotate-[28deg] md:rotate-[9deg] z-20'>
+      <Line
+        odd={false}
+        text={'Search Engine Optimization (SEO)'}
+        classes='top-[-60%] md:top-[10%] rotate-[28deg] md:rotate-[9deg] z-20'
+      >
         <div className={`absolute left-0 top-0 -z-10 size-full bg-[#FFC690]`}></div>
       </Line>
-      <Line text={'Content Marketing'} bg={'#fff'} classes={'top-[70%] rotate-[-28deg] md:rotate-[-9deg] z-10'}>
+      <Line odd={true} text={'Content Marketing'} classes={'top-[70%] rotate-[-28deg] md:rotate-[-9deg] z-10'}>
         <div className={`absolute left-0 top-0 -z-10 size-full bg-[#f6f6f6]`}></div>
       </Line>
     </div>
