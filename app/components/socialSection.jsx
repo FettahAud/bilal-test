@@ -3,7 +3,7 @@ import squaresBg from '/public/squares-bg.svg'
 import seoBg from '/public/seo-bg.png'
 
 import { Suspense } from 'react'
-import { Spring2 } from '@/components/canvas/Examples'
+import { Spring2 } from '@/components/canvas/ThreeDCompponents'
 import dynamic from 'next/dynamic'
 import { useScroll, useTransform, motion } from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
@@ -31,7 +31,11 @@ const Social3D = () => {
       <figure className='absolute left-0 top-0 h-[300px] w-screen select-none' aria-hidden='true'>
         <Image src={squaresBg} className='left-0' alt='Squares' fill objectFit='cover' objectPosition='bottom' />
       </figure>
-      <article className='relative flex flex-col gap-40 px-[40px] md:px-[326px]' aria-labelledby='social-media-heading'>
+      <article
+        id='social-medial'
+        className='relative flex flex-col gap-40 px-[40px] md:px-[326px]'
+        aria-labelledby='social-media-heading'
+      >
         <header>
           <h2
             id='social-media-heading'
@@ -63,7 +67,7 @@ const Social3D = () => {
         <div className='absolute left-0 top-[260px] h-20 w-full bg-[#FFC690] md:top-[190px]'>
           <View orbit className='absolute left-0 top-[-80px] size-[235px]'>
             <Suspense fallback={null}>
-              <Spring2 />
+              <Spring2 container={'#social-medial'} />
               <pointLight position={[-10, -10, -10]} color='white' decay={0.2} />
               <Common />
             </Suspense>

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import graphCircle from '/public/graph-circle.svg'
 import { Suspense } from 'react'
-import { Spring } from '@/components/canvas/Examples'
+import { Spring } from '@/components/canvas/ThreeDCompponents'
 import dynamic from 'next/dynamic'
 
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {

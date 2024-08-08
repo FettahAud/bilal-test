@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { Spring2 } from '@/components/canvas/Examples'
+import { Spring2 } from '@/components/canvas/ThreeDCompponents'
 import dynamic from 'next/dynamic'
 import { useScroll, useTransform, motion } from 'framer-motion'
 
@@ -30,7 +30,7 @@ const GetInTouch = () => {
     >
       <View orbit className='absolute right-[140px] top-0 size-[235px]'>
         <Suspense fallback={null}>
-          <Spring2 />
+          <Spring2 container={'#touch'} />
           <pointLight position={[-10, -10, -10]} color='white' decay={0.2} />
           <Common />
         </Suspense>

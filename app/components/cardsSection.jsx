@@ -1,8 +1,46 @@
 import Image from 'next/image'
+import gsap, { ScrollTrigger } from 'gsap/all'
+import { useGSAP } from '@gsap/react'
+import { useRef } from 'react'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const CardTitle = ({ title, style }) => {
+  const ref = useRef(null)
+  useGSAP(() => {
+    if (!ref.current) return
+    const tl = gsap.timeline({
+      defaults: {
+        transform: `perspective(1000px) ${style.transform}`,
+      },
+    })
+    tl.fromTo(
+      ref.current,
+      {
+        z: 700,
+        autoAlpha: 0,
+      },
+      {
+        z: 0,
+        autoAlpha: 1,
+      },
+    )
+    ScrollTrigger.create({
+      trigger: ref.current.parentElement,
+      markers: false,
+      start: 'top 60%',
+      end: 'bottom 60%',
+      animation: tl,
+      // scrub: true,
+    })
+    return () => {
+      tl.kill()
+      ScrollTrigger.killAll()
+    }
+  })
   return (
     <h2
+      ref={ref}
       className='absolute top-[-70px] font-inter text-[60px] font-black text-[#0A0B1E] md:top-[-180px] md:text-[200px]'
       style={style}
       aria-label={title}

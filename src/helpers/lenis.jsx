@@ -1,8 +1,10 @@
 import Lenis from '@studio-freight/lenis'
+import { ScrollTrigger } from 'gsap/all'
 import { useEffect } from 'react'
 
 const SmoothScroller = () => {
   useEffect(() => {
+    ScrollTrigger.refresh()
     const lenis = new Lenis()
 
     function raf(time) {
